@@ -1,6 +1,6 @@
 {
   "name": "scapegoat-tree",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Self-balancing binary search tree that rebuilds subtrees when height exceeds a configurable logarithmic bound.",
   "type": "module",
   "main": "src/index.js",
