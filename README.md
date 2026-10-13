@@ -38,3 +38,10 @@ The trade-off: deletions are handled lazily. After a delete, the tree is not reb
 ## Awkward edge
 
 `alpha = 0.5` is rejected by the constructor. At 0.5 the height bound `log_{1/alpha}(n)` becomes `log_2(n)`, which would demand a perfectly balanced tree after every insert and cause a rebuild on essentially each operation. Values >= 1 disable balancing entirely and are also rejected. Pick a value like 0.6 or 0.7 for the usual balance between rebuild frequency and height.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
